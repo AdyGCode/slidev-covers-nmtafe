@@ -1,47 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head><title>Cover Resolver</title></head>
-<body>
-<script>
-    (async () => {
-        const base = location.origin + location.pathname.replace(/\/cover.*$/, '/')
-        const manifestUrl = base + 'index.json'
+<head>
+    <meta charset="utf-8">
+    <title>Slidev Cover Resolver</title>
 
-        const path = location.pathname
-            .replace(/^.*\/cover\/?/, '')
-            .replace(/\/$/, '')
+    <!-- Fallback: immediate redirect -->
+    <meta http-equiv="refresh" content="0; url=./_bootstrap.png">
 
-        const res = await fetch(manifestUrl)
-        const manifest = await res.json()
-        const categories = Object.keys(manifest)
+    <script>
+        (async () => {
+            const base = location.origin + location.pathname.replace(/\/cover.*$/, '/')
+            const manifest = await fetch(base + 'index.json').then(r => r.json())
 
-        const random = arr => arr[Math.floor(Math.random() * arr.length)]
+            const cats = Object.keys(manifest)
+            const random = a => a[Math.floor(Math.random() * a.length)]
+            const chosen = random(manifest[random(cats)])
 
-        let image
-
-        if (!path) {
-            const cat = random(categories)
-            image = random(manifest[cat])
-        } else {
-            const parts = path.split('/')
-            const [category, name] = parts
-
-            if (!manifest[category]) {
-                const cat = random(categories)
-                image = random(manifest[cat])
-            } else if (!name) {
-                image = random(manifest[category])
-            } else {
-                const match = manifest[category].find(p =>
-                    p.includes(`/${name}.`)
-                )
-                image = match ?? random(manifest[category])
-            }
-        }
-
-        location.replace(base + image)
-    })()
-</script>
-</body>
+            location.replace(base + chosen)
+        })()
+    </script>
+</head>
+<body></body>
 </html>
-<meta charset="utf-8" />
