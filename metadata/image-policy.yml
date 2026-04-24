@@ -1,0 +1,19 @@
+allowed_formats:
+  - .png
+  - .jpg
+  - .jpeg
+  - .webp
+  - .svg
+
+max_file_size_kb: 8000
+
+categories:
+  - business
+  - campuses
+  - foundation
+  - ict
+  - leadership
+  - tafe
+
+svg:
+  allow_inline_scripts: false

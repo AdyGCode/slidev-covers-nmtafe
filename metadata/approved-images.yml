@@ -1,0 +1,28 @@
+approved:
+  - path: tafe/tafewa-1.png
+    licence: CC-BY-4.0
+    source: NMTAFE Media Library
+    approved_by: adrian.gould
+    approved_on: 2026-04-22
+    alt: "Background cover"
+
+  - path: tafe/nmtafe-1.png
+    licence: Internal
+    source: NMTAFE Media Library
+    approved_by: teaching.review.panel
+    approved_on: 2026-04-20
+    alt: "Background cover"
+
+  - path: tafe/nmtafe-2.png
+    licence: Internal
+    source: NMTAFE Media Library
+    approved_by: teaching.review.panel
+    approved_on: 2026-04-20
+    alt: "Background cover"
+
+  - path: tafe/nmtafe-3.png
+    licence: Internal
+    source: NMTAFE Media Library
+    approved_by: teaching.review.panel
+    approved_on: 2026-04-20
+    alt: "Background cover"
